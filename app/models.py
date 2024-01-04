@@ -37,9 +37,9 @@ class Users(db.Model):
     password_hash = db.Column(db.String(128), unique=False, nullable=False)
     birthday = db.Column(db.DateTime, nullable=False)
     join_date = db.Column(db.DateTime, default=datetime.utcnow)
-    posts = db.relationship("Posts", backref="user", lazy="dynamic")
-    comments = db.relationship("Comments", backref="user", lazy="dynamic")
-    tasks = db.relationship("Tasks", backref="user", lazy="dynamic")
+    # posts = db.relationship("Posts", backref="user", lazy="dynamic")
+    # comments = db.relationship("Comments", backref="user", lazy="dynamic")
+    # tasks = db.relationship("Tasks", backref="user", lazy="dynamic")
 
     def set_password(self, password: str):
         """
@@ -134,20 +134,20 @@ class Users(db.Model):
         return Tasks.query.filter_by(user=self, complete=True).all()
 
 
-class Posts(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    body = db.Column(db.String(140))
-    timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
-    comments = db.relationship("Comments", backref="post", lazy="dynamic")
-    user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
+# class Posts(db.Model):
+#     id = db.Column(db.Integer, primary_key=True)
+#     body = db.Column(db.String(140))
+#     timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
+#     comments = db.relationship("Comments", backref="post", lazy="dynamic")
+#     user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
 
 
-class Comments(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    body = db.Column(db.String(140))
-    timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
-    post_id = db.Column(db.Integer, db.ForeignKey("posts.id"))
-    user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
+# class Comments(db.Model):
+#     id = db.Column(db.Integer, primary_key=True)
+#     body = db.Column(db.String(140))
+#     timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
+#     post_id = db.Column(db.Integer, db.ForeignKey("posts.id"))
+#     user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
 
 
 class RevokedTokenModel(db.Model):

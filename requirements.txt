@@ -35,7 +35,7 @@ marshmallow==3.19.0
 marshmallow-sqlalchemy==0.29.0
 mccabe==0.7.0
 mdurl==0.1.2
-migrate==0.3.8
+# migrate==0.3.8
 multidict==6.0.4
 mypy-extensions==1.0.0
 ordered-set==4.1.0

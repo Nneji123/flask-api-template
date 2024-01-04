@@ -1,5 +1,5 @@
 from app import ma
-from app.models import Users, Posts, Comments, Tasks
+from app.models import Users, Tasks
 
 from marshmallow import Schema, fields
 
@@ -18,23 +18,23 @@ class UsersDeserializingSchema(Schema):
     birthday = fields.Date()
 
 
-class PostsSchema(ma.SQLAlchemyAutoSchema):
-    class Meta:
-        model = Posts
+# class PostsSchema(ma.SQLAlchemyAutoSchema):
+#     class Meta:
+#         model = Posts
 
 
-class PostsDeserializingSchema(Schema):
-    body = fields.String()
+# class PostsDeserializingSchema(Schema):
+#     body = fields.String()
 
 
-class CommentsSchema(ma.SQLAlchemyAutoSchema):
-    class Meta:
-        model = Comments
+# class CommentsSchema(ma.SQLAlchemyAutoSchema):
+#     class Meta:
+#         model = Comments
 
 
-class CommentsDeserializingSchema(Schema):
-    body = fields.String()
-    post_id = fields.Integer()
+# class CommentsDeserializingSchema(Schema):
+#     body = fields.String()
+#     post_id = fields.Integer()
 
 
 class TasksSchema(ma.SQLAlchemyAutoSchema):
