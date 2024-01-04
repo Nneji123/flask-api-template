@@ -13,8 +13,7 @@ def _set_task_progress(progress: int) -> None:
     progress : int
         The percentage of the task progress
     """
-    job = get_current_job()
-    if job:
+    if job := get_current_job():
         job.meta["progress"] = progress
         job.save_meta()
 

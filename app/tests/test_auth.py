@@ -95,7 +95,7 @@ class TestAuth(unittest.TestCase):
 
             resp = c.post(
                 "/api/auth/refresh",
-                headers={"Authorization": "Bearer {}".format(setup_refresh_token)},
+                headers={"Authorization": f"Bearer {setup_refresh_token}"},
             )
 
             json_data = resp.get_json()
@@ -148,7 +148,7 @@ class TestAuth(unittest.TestCase):
 
             resp = c.delete(
                 "/api/auth/logout/token",
-                headers={"Authorization": "Bearer {}".format(setup_access_token)},
+                headers={"Authorization": f"Bearer {setup_access_token}"},
             )
             json_data = resp.get_json()
             msg = json_data["msg"]
@@ -178,7 +178,7 @@ class TestAuth(unittest.TestCase):
 
             resp = c.delete(
                 "/api/auth/logout/fresh",
-                headers={"Authorization": "Bearer {}".format(setup_refresh_token)},
+                headers={"Authorization": f"Bearer {setup_refresh_token}"},
             )
             json_data = resp.get_json()
             msg = json_data["msg"]

@@ -86,7 +86,7 @@ class Users(db.Model):
             A Tasks object containing the task information
         """
         rq_job = current_app.task_queue.enqueue(
-            "app.tasks.long_running_jobs" + name, **kwargs
+            f"app.tasks.long_running_jobs{name}", **kwargs
         )
         task = Tasks(
             task_id=rq_job.get_id(), name=name, description=description, user=self

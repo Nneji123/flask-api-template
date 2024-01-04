@@ -125,6 +125,4 @@ async def async_comments_api_call() -> dict[str, list[Any]]:
         user_posts_res = await asyncio.gather(*tasks)
         json_res = [await r.json() for r in user_posts_res]
 
-    response_data = {"comments": json_res}
-
-    return response_data
+    return {"comments": json_res}

@@ -50,12 +50,10 @@ def get_post_by_id(id: int) -> tuple[Response, int] | Response:
     JSON
         A JSON object containing all post data
     """
-    post = Posts.query.get(id)
-
-    if not post:
+    if post := Posts.query.get(id):
+        return post_schema.jsonify(post), 200
+    else:
         return bad_request("No post found")
-
-    return post_schema.jsonify(post), 200
 
 
 @bp.post("/post/user/submit/post")

@@ -29,7 +29,7 @@ class TestUsers(unittest.TestCase):
 
             resp = c.get(
                 "/api/users/get/user/profile",
-                headers={"Authorization": "Bearer {}".format(setup_access_token)},
+                headers={"Authorization": f"Bearer {setup_access_token}"},
             )
 
             json_data = resp.get_json()
@@ -42,7 +42,7 @@ class TestUsers(unittest.TestCase):
 
             resp = c.get(
                 "/api/users/get/user/profile/test",
-                headers={"Authorization": "Bearer {}".format(setup_access_token)},
+                headers={"Authorization": f"Bearer {setup_access_token}"},
             )
 
             json_data = resp.get_json()

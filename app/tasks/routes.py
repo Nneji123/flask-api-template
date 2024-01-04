@@ -28,9 +28,8 @@ def background_worker_count_seconds(number: int) -> tuple[Response, int] | Respo
     if current_user.get_task_in_progress("count_seconds"):
         return bad_request("Task already in progress")
 
-    else:
-        current_user.launch_task("count_seconds", "Counting seconds...", number=number)
-        db.session.commit()
+    current_user.launch_task("count_seconds", "Counting seconds...", number=number)
+    db.session.commit()
 
     return jsonify({"msg": "Launched background task"}), 200
 

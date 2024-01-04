@@ -32,9 +32,7 @@ def remove_old_jwts():
 
         db.session.commit()
 
-        print(
-            "{} old tokens have been removed from the database".format(len(old_tokens))
-        )
+        print(f"{len(old_tokens)} old tokens have been removed from the database")
 
     else:
         print("No JWT's older than 5 days have been found")

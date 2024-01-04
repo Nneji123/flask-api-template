@@ -33,7 +33,7 @@ class TestComments(unittest.TestCase):
 
             resp = c.post(
                 "/api/posts/post/user/submit/post",
-                headers={"Authorization": "Bearer {}".format(setup_access_token)},
+                headers={"Authorization": f"Bearer {setup_access_token}"},
                 json=post_payload,
             )
 
@@ -41,13 +41,13 @@ class TestComments(unittest.TestCase):
 
             c.post(
                 "/api/comments/post/user/submit/comment",
-                headers={"Authorization": "Bearer {}".format(setup_access_token)},
+                headers={"Authorization": f"Bearer {setup_access_token}"},
                 json=comment_payload,
             )
 
             resp = c.get(
                 "/api/comments/get/user/comments/post/1",
-                headers={"Authorization": "Bearer {}".format(setup_access_token)},
+                headers={"Authorization": f"Bearer {setup_access_token}"},
             )
 
             json_data = resp.get_json()
@@ -62,7 +62,7 @@ class TestComments(unittest.TestCase):
 
             resp = c.post(
                 "/api/posts/post/user/submit/post",
-                headers={"Authorization": "Bearer {}".format(setup_access_token)},
+                headers={"Authorization": f"Bearer {setup_access_token}"},
                 json=post_payload,
             )
 
@@ -70,7 +70,7 @@ class TestComments(unittest.TestCase):
 
             resp = c.post(
                 "/api/comments/post/user/submit/comment",
-                headers={"Authorization": "Bearer {}".format(setup_access_token)},
+                headers={"Authorization": f"Bearer {setup_access_token}"},
                 json=payload,
             )
 
@@ -86,7 +86,7 @@ class TestComments(unittest.TestCase):
 
             resp = c.post(
                 "/api/posts/post/user/submit/post",
-                headers={"Authorization": "Bearer {}".format(setup_access_token)},
+                headers={"Authorization": f"Bearer {setup_access_token}"},
                 json=post_payload,
             )
 
@@ -94,13 +94,13 @@ class TestComments(unittest.TestCase):
 
             resp = c.post(
                 "/api/comments/post/user/submit/comment",
-                headers={"Authorization": "Bearer {}".format(setup_access_token)},
+                headers={"Authorization": f"Bearer {setup_access_token}"},
                 json=payload,
             )
 
             resp = c.delete(
                 "/api/comments/delete/user/comment/1",
-                headers={"Authorization": "Bearer {}".format(setup_access_token)},
+                headers={"Authorization": f"Bearer {setup_access_token}"},
             )
 
             json_data = resp.get_json()
@@ -113,7 +113,7 @@ class TestComments(unittest.TestCase):
 
             resp = c.get(
                 "/api/comments/get/user/comments/async",
-                headers={"Authorization": "Bearer {}".format(setup_access_token)},
+                headers={"Authorization": f"Bearer {setup_access_token}"},
             )
 
             json_data = resp.get_json()

@@ -28,6 +28,4 @@ def register_and_login_test_user(c) -> str:
         "/api/auth/login", json={"username": "test", "password": "secret"}
     )
     setup_resp_json = setup_resp.get_json()
-    setup_access_token = setup_resp_json["access_token"]
-
-    return setup_access_token
+    return setup_resp_json["access_token"]

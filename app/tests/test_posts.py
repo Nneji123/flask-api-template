@@ -31,13 +31,13 @@ class TestPosts(unittest.TestCase):
 
             resp = c.post(
                 "/api/posts/post/user/submit/post",
-                headers={"Authorization": "Bearer {}".format(setup_access_token)},
+                headers={"Authorization": f"Bearer {setup_access_token}"},
                 json=payload,
             )
 
             resp = c.get(
                 "api/posts/get/user/posts",
-                headers={"Authorization": "Bearer {}".format(setup_access_token)},
+                headers={"Authorization": f"Bearer {setup_access_token}"},
             )
 
             json_data = resp.get_json()
@@ -52,13 +52,13 @@ class TestPosts(unittest.TestCase):
 
             c.post(
                 "/api/posts/post/user/submit/post",
-                headers={"Authorization": "Bearer {}".format(setup_access_token)},
+                headers={"Authorization": f"Bearer {setup_access_token}"},
                 json=payload,
             )
 
             resp = c.get(
                 "/api/posts/get/user/post/1",
-                headers={"Authorization": "Bearer {}".format(setup_access_token)},
+                headers={"Authorization": f"Bearer {setup_access_token}"},
             )
 
             json_data = resp.get_json()
@@ -73,7 +73,7 @@ class TestPosts(unittest.TestCase):
 
             resp = c.post(
                 "/api/posts/post/user/submit/post",
-                headers={"Authorization": "Bearer {}".format(setup_access_token)},
+                headers={"Authorization": f"Bearer {setup_access_token}"},
                 json=payload,
             )
 
@@ -89,13 +89,13 @@ class TestPosts(unittest.TestCase):
 
             resp = c.post(
                 "/api/posts/post/user/submit/post",
-                headers={"Authorization": "Bearer {}".format(setup_access_token)},
+                headers={"Authorization": f"Bearer {setup_access_token}"},
                 json=payload,
             )
 
             resp = c.delete(
                 "/api/posts/delete/user/post/1",
-                headers={"Authorization": "Bearer {}".format(setup_access_token)},
+                headers={"Authorization": f"Bearer {setup_access_token}"},
             )
 
             json_data = resp.get_json()
@@ -108,7 +108,7 @@ class TestPosts(unittest.TestCase):
 
             resp = c.get(
                 "/api/posts/get/user/posts/async",
-                headers={"Authorization": "Bearer {}".format(setup_access_token)},
+                headers={"Authorization": f"Bearer {setup_access_token}"},
             )
 
             json_data = resp.get_json()
